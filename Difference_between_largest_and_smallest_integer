@@ -1,0 +1,40 @@
+public class ArrayDifference {
+
+    public static int findDifference(int[] arr) {
+        if (arr == null || arr.length == 0) {
+            return 0; // Return 0 for empty array or null input
+        }
+        
+        int min = arr[0];
+        int max = arr[0];
+        
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+            } else if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        
+        return max - min;
+    }
+
+    public static void main(String[] args) {
+        // Replace 'n' with your desired array size
+        int n = 5;
+        
+        // Create an array of size 'n' with random integers (for demonstration)
+        int[] numbers = new int[n];
+        for (int i = 0; i < n; i++) {
+            // Generate random integers between 1 and 100 (for demonstration)
+            numbers[i] = (int) (Math.random() * 100) + 1;
+        }
+        
+        // Find the difference between the largest and smallest values
+        int difference = findDifference(numbers);
+        
+        // Display the array and the difference
+        System.out.println("Array: " + Arrays.toString(numbers));
+        System.out.println("Difference between largest and smallest values: " + difference);
+    }
+}
